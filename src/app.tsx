@@ -47,17 +47,10 @@ const LockinMeter: Component = () => {
   };
 
   const handleSubmit = async () => {
-    const url = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
-
-    if (!url) {
-      showStatus("Discord webhook URL not configured!", "error");
-      return;
-    }
-
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(url, {
+      const response = await fetch("/.netlify/functions/send-discord", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
