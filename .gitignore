@@ -6,6 +6,10 @@ dist
 .netlify
 netlify
 
+# Environment variables
+.env
+.env.local
+
 # dependencies
 /node_modules
 
